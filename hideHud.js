@@ -1,4 +1,4 @@
-function hideUI() {
+function hideHUD() {
 	// I should probably loop through the ids and hide them all, but im too lazy to do that !!! :p
 	document.getElementById("playerList").style.display = "none";
 	document.getElementById("chatIn").style.display = "none";
@@ -26,7 +26,7 @@ function hideUI() {
 	document.getElementById("reticleContainer").style.display = "none";
 	document.getElementById("gameMessage").style.display = "none";
 }
-function showUI() {
+function showHUD() {
 	// Very messy but its 1am and I could honestly care less right now.
 	document.getElementById("playerList").style.display = "";
 	document.getElementById("chatIn").style.display = "block";
@@ -48,6 +48,7 @@ function showUI() {
 	document.getElementById("eggBreakerContainer").style.display = "";
 	document.getElementById("gameMessage").style.display = "";
 	document.getElementById("best_streak_container").style.display = "";
+	document.getElementById("account_panel").style.display = "";
 	if (!vueApp.game.isPaused && !vueApp.ui.game.spectate && !vueApp.ui.game.spectatingPlayerName) {
 		document.getElementById("weaponBox").style.display = "block";
 		document.getElementById("healthContainer").style.display = "";
@@ -56,7 +57,6 @@ function showUI() {
 		}
 	} else if (vueApp.game.isPaused) {
 		document.getElementById("chickenBadge").style.display = "";
-		document.getElementById("account_panel").style.display = "";
 	}
 	if (!vueApp.game.isPaused) {
 		document.getElementById("killTicker").style.display = "";
@@ -69,14 +69,14 @@ function showUI() {
 window.hiddenHUD = false;
 document.addEventListener('keydown', function(event) {
 	if (document.activeElement.id == "chatIn") return;
-	let hideUIKey = vueApp.settingsUi.controls.keyboard.spectate[vueApp.settingsUi.controls.keyboard.spectate.findIndex(item => item.id === "toggle_hud")].value.toLowerCase();
-	if (event.key === hideUIKey) {
+	let hideKey = vueApp.settingsUi.controls.keyboard.spectate[vueApp.settingsUi.controls.keyboard.spectate.findIndex(item => item.id === "toggle_hud")].value.toLowerCase();
+	if (event.key === hideKey) {
 		if (!extern.inGame) return;
 		window.hiddenHUD = !window.hiddenHUD;
 		if (window.hiddenHUD) {
-			hideUI();
+			hideHUD();
 		} else {
-			showUI();
+			showHUD();
 		}
 	}
 });
