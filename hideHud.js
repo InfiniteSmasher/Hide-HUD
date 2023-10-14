@@ -67,19 +67,6 @@ function showHUD() {
 }
 
 window.hiddenHUD = false;
-document.addEventListener('keydown', function(event) {
-	if (document.activeElement.id == "chatIn") return;
-	let hideKey = vueApp.settingsUi.controls.keyboard.spectate[vueApp.settingsUi.controls.keyboard.spectate.findIndex(item => item.id === "toggle_hud")].value.toLowerCase();
-	if (event.key === hideKey) {
-		if (!extern.inGame) return;
-		window.hiddenHUD = !window.hiddenHUD;
-		if (window.hiddenHUD) {
-			hideHUD();
-		} else {
-			showHUD();
-		}
-	}
-});
 
 function hideMiscUI() {
 	if (window.hiddenHUD) {
@@ -112,4 +99,18 @@ let hideHUDInterval = setInterval(() => {
 
 	vueApp.loc.keybindings_toggle_hud = "Toggle HUD";
 	vueApp.settingsUi.controls.keyboard.spectate.push({ id: 'toggle_hud', locKey: 'keybindings_toggle_hud', value: 'H' });
+
+	document.addEventListener('keydown', function(event) {
+		if (document.activeElement.id == "chatIn") return;
+		let hideKey = vueApp.settingsUi.controls.keyboard.spectate[vueApp.settingsUi.controls.keyboard.spectate.findIndex(item => item.id === "toggle_hud")].value.toLowerCase();
+		if (event.key === hideKey) {
+			if (!extern.inGame) return;
+			window.hiddenHUD = !window.hiddenHUD;
+			if (window.hiddenHUD) {
+				hideHUD();
+			} else {
+				showHUD();
+			}
+		}
+	});
 }, 250);
