@@ -90,9 +90,9 @@ function hideMiscUI() {
 	}
 }
 
-let interval = setInterval(() => {
+let hideHUDInterval = setInterval(() => {
 	if (typeof (extern) === "undefined" || typeof (vueApp) === "undefined") return;
-	clearInterval(interval);
+	clearInterval(hideHUDInterval);
 	let oldRespawn = extern.respawn;
 	extern.respawn = () => {
 		oldRespawn();
