@@ -1,4 +1,28 @@
-let elemIds = ["playerList", "chatIn", "chatOut", "captureIconWrap", "captureContainer", "account_panel", "inGameUI", "healthContainer", "shellStreakContainer", "hardBoiledContainer", "eggBreakerContainer", "teamScores", "killTicker", "best_streak_container", "weaponBox", "grenadeThrowContainer", "spatulaPlayer", "bigMessageContainer", "killBox", "deathBox", "spectate", "chickenBadge", "reticleDot", "reticleContainer", "gameMessage"];
+let elemIds = [
+    "healthContainer",
+    "egg-breaker-wrap",
+    "reticleDot",
+    "reticleContainer",
+    "grenadeThrowContainer",
+    "captureIconWrap",
+    "captureContainer",
+    "teamScores",
+    "spatulaPlayer",
+    "cts-message",
+    "weaponBox",
+    "account_panel",
+    "chatIn",
+    "chatOut",
+    "playerList",
+    "bigMessageContainer",
+    "gameMessage",
+    "kill-death-box",
+    "inGameUI",
+    "killTicker",
+    "shellStreakContainer",
+    "spectate",
+    "chickenBadge"
+];
 
 let hideHUDInterval = setInterval(() => {
 	if (typeof (vueApp) === "undefined") return;
